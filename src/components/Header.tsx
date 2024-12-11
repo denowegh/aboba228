@@ -36,6 +36,13 @@ export const Header = () => {
                 title:'Розклад'
             }]);
 
+    const handleLogout = ()=> {
+        CookieManager.removeItem('isLoggedIn');
+        CookieManager.removeItem('isAdmin');
+        customEvent.emit('changeCookie');
+        navigate('/');
+    }
+
     return (
         <header className={'header-main'} style={{
             padding: '0 24px'
@@ -70,18 +77,14 @@ export const Header = () => {
                     </Row>
                     <Row>
                         {isLoggedIn ? (
-                            <Button variant="danger" onClick={() => {
-                                CookieManager.removeItem('isLoggedIn');
-                                customEvent.emit('changeCookie');
-                                navigate('/');
-                            }}>
+                            <Button variant="danger" onClick={handleLogout}>
                                 Logout
                             </Button>
                         ) : (
                             <Container>
                                 <Row className="align-items-center">
                                     <Col className={'d-flex gap-4'}>
-                                        <Button variant="primary" onClick={() => {
+                                        <Button variant="light" onClick={() => {
                                             navigate('/signIn');
                                         }}>
                                             Sign In
@@ -119,11 +122,7 @@ export const Header = () => {
                 </Row>
             </Container>}
             <div>{isLoggedIn ? (
-                <Button variant="danger" onClick={()=> {
-                     CookieManager.removeItem('isLoggedIn');
-                     customEvent.emit('changeCookie');
-                    navigate('/');
-                }}>Logout</Button>
+                <Button variant="danger" onClick={handleLogout}>Logout</Button>
             ) : (
 
                 <Container>

@@ -1,7 +1,7 @@
 import './styles.css';
 import {Button, Container, Form} from "react-bootstrap";
 import {ChangeEvent, FormEvent, useState} from "react";
-import {URL_API} from "../constants.ts";
+import {ADMIN_KEY_VALID, URL_API} from "../constants.ts";
 import CookieManager from "../utils/cookieManager.ts";
 import {useNavigate} from "react-router-dom";
 import {customEvent} from "../utils/customEvent.ts";
@@ -52,8 +52,9 @@ export const SignIn = () => {
                     surname: formData.surname,
                     name: formData.name
                 };
+                const isAdminAccount = formData.email.includes('@company.com') && formData.adminKey;
 
-                if (formData.email.includes('@company.com') && formData.adminKey) {
+                if (isAdminAccount) {
                     bodyObj.adminKey = formData.adminKey;
                 }
 
@@ -67,7 +68,12 @@ export const SignIn = () => {
 
                 if (response.ok) {
                     CookieManager.setItem('isLoggedIn', 'true');
+                    CookieManager.setItem('email', `${formData.email}`);
                     customEvent.emit('changeCookie');
+
+                    if (ADMIN_KEY_VALID === formData.adminKey && isAdminAccount) {
+                        CookieManager.setItem('isAdmin', 'true');
+                    }
                     navigate('/');
                 } else {
                     const errorData = await response.json();
