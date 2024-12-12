@@ -107,8 +107,8 @@ export const Main = () => {
                 <Row>
                     {memberships.map((plan) => (
                         <Col key={plan.id} md={4} sm={6} className="mb-4">
-                            <Card className="text-light bg-dark border-success h-100 rounded">
-                                <Card.Body>
+                            <Card className="text-light bg-dark border-success h-100 rounded d-flex flex-column">
+                                <Card.Body className="d-flex flex-column">
                                     <Card.Title className="text-success">{plan.name}</Card.Title>
                                     <Card.Text>{plan.description}</Card.Text>
                                     <Container>
@@ -118,36 +118,33 @@ export const Main = () => {
                                             </Col>
                                         </Row>
                                     </Container>
-                                    {!isLoggedIn ?
-                                        <>
-                                            {
-                                                <Button
-                                                    variant="success"
-                                                    className="w-100 mt-2"
-                                                    onClick={()=> {
-                                                        navigate('/signIn');
-                                                    }}
-                                                >
-                                                    Sign In
-                                                </Button>
-                                            }
-                                        </>
-                                        :
-                                        <>
-                                            {
-                                                +(idBothPlan || -1) === plan.id ?
-                                                    <p className={'text-center'}>
-                                                        Owned
-                                                    </p>
-                                                :
-                                                    <Button variant="success" className="w-100 mt-2" onClick={() => {
-                                                        handleBuyClick(plan);
-                                                    }}>
-                                                        Buy
-                                                    </Button>
-                                            }
-                                        </>
-                                    }
+                                    {!isLoggedIn ? (
+                                        <Button
+                                            variant="success"
+                                            className="w-100 mt-2"
+                                            onClick={() => {
+                                                navigate('/signIn');
+                                            }}
+                                        >
+                                            Sign In
+                                        </Button>
+                                    ) : (
+                                        +(idBothPlan || -1) === plan.id ? (
+                                            <p className={'text-center mt-auto'}>
+                                                Owned
+                                            </p>
+                                        ) : (
+                                            <Button
+                                                variant="success"
+                                                className="w-100 mt-2 mt-auto"
+                                                onClick={() => {
+                                                    handleBuyClick(plan);
+                                                }}
+                                            >
+                                                Buy
+                                            </Button>
+                                        )
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
