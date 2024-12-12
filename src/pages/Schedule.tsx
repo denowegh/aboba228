@@ -277,7 +277,7 @@ export const SchedulePage = () => {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleModalClose}>Cancel</Button>
-                        <Button type="submit" variant="primary">{modalType === 'delete' ? 'Delete' : 'Save'}</Button>
+                        <Button type="submit" variant="success">{modalType === 'delete' ? 'Delete' : 'Save'}</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>

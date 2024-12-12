@@ -97,7 +97,7 @@ export const Clients = () => {
         <div className={'containerTable'}>
                 <h2>Clients</h2>
                 {loading ? (
-                    <Spinner animation="border" variant="primary" />
+                    <Spinner animation="border" variant="success" />
                 ) : (
                     <Table striped bordered hover variant={'dark'}>
                         <thead>

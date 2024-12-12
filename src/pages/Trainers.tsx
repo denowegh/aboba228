@@ -89,7 +89,7 @@ export const Trainers = () => {
     return (
         <div className={'containerTable'}>
             <h1 className={'mb-4'}>Trainers</h1>
-            {isAdmin && <Button variant="primary" className={'mb-4'} onClick={() => handleShowModal(null)}>
+            {isAdmin && <Button variant="success" className={'mb-4'} onClick={() => handleShowModal(null)}>
                 Add Trainer
             </Button>}
             <Table striped bordered hover variant="dark" >
@@ -211,7 +211,7 @@ export const Trainers = () => {
                     <Button variant="secondary" onClick={handleCloseModal}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleSave}>
+                    <Button variant="success" onClick={handleSave}>
                         Save
                     </Button>
                 </Modal.Footer>

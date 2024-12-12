@@ -165,7 +165,7 @@ export const Main = () => {
                         <Button variant="secondary" onClick={() => setShowBuyModal(false)}>
                             Cancel
                         </Button>
-                        <Button variant="primary" onClick={handleConfirmBuy}>
+                        <Button variant="success" onClick={handleConfirmBuy}>
                             Confirm Purchase
                         </Button>
                     </Modal.Footer>

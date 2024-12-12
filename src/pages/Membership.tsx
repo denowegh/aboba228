@@ -202,7 +202,7 @@ export const Membership = memo(() => {
             {
                 isAdmin &&
                 <div className="text-center mb-4">
-                    <Button variant="primary" onClick={handleCreateClick}>
+                    <Button variant="success" onClick={handleCreateClick}>
                     Create New Membership Plan
                     </Button>
                 </div>
@@ -322,7 +322,7 @@ export const Membership = memo(() => {
                         <Button variant="secondary" onClick={handleCloseModal}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleSaveChanges}>
+                        <Button variant="success" onClick={handleSaveChanges}>
                             Save Changes
                         </Button>
                     </Modal.Footer>
@@ -362,7 +362,7 @@ export const Membership = memo(() => {
                         <Button variant="secondary" onClick={() => setShowBuyModal(false)}>
                             Cancel
                         </Button>
-                        <Button variant="primary" onClick={handleConfirmBuy}>
+                        <Button variant="success" onClick={handleConfirmBuy}>
                             Confirm Purchase
                         </Button>
                     </Modal.Footer>
@@ -439,7 +439,7 @@ export const Membership = memo(() => {
                         <Button variant="secondary" onClick={handleCloseCreateModal}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleSaveNewPlan}>
+                        <Button variant="success" onClick={handleSaveNewPlan}>
                             Create Plan
                         </Button>
                     </Modal.Footer>
