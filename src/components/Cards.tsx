@@ -16,7 +16,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, description, price, bu
                   border: '2px solid white',
                   display: 'flex',
                   flexDirection: 'column',
-                  height: '100%' // Ensures the card fills the column's height
+                  height: '100%'
               }}>
             <Card.Body className="d-flex flex-column justify-content-between">
                 <Card.Title className="text-success">{title}</Card.Title>

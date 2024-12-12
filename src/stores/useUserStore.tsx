@@ -7,7 +7,7 @@ interface UserState {
     setIsAdmin: (isAdmin: boolean) => void;
 }
 
-export const useDuelStore = create<UserState>((set) => ({
+export const useUserStore = create<UserState>((set) => ({
     setIsLoggedIn: (isLoggedIn) => set({isLoggedIn}),
     isLoggedIn: false,
     isAdmin: false,

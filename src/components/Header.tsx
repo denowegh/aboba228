@@ -5,14 +5,14 @@ import CookieManager from "../utils/cookieManager.ts";
 import {customEvent} from "../utils/customEvent.ts";
 import useMediaQuery from "../hooks/useMediaQuery.ts";
 import {useState} from "react";
-import {useDuelStore} from "../stores/useUserStore.tsx";
+import { useUserStore} from "../stores/useUserStore.tsx";
 
 
 export const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
-    const {isLoggedIn} = useDuelStore();
+    const {isLoggedIn, isAdmin} = useUserStore();
     const {isSmall} = useMediaQuery();
 
     const routes: {
@@ -29,12 +29,24 @@ export const Header = () => {
         routes.push(...[
             {
                 link: '/membership',
-                title:'Абонементи'
+                title:'Membership'
             },
             {
                 link: '/schedule',
-                title:'Розклад'
+                title:'Schedule'
+            },{
+                link: '/trainers',
+                title:'Trainers'
             }]);
+
+    if (isAdmin)
+        routes.push(...[
+            {
+                link: '/clients',
+                title:'Clients'
+            }
+        ])
+
 
     const handleLogout = ()=> {
         CookieManager.removeItem('isLoggedIn');
@@ -55,7 +67,7 @@ export const Header = () => {
                 }
             }}>GymFlow</h1>
 
-            <Modal show={isOpen} onHide={()=> setIsOpen(false)}>
+            <Modal show={isOpen} centered onHide={()=> setIsOpen(false)}>
             <Modal.Body>
                 <Container>
                     <Row>
@@ -128,7 +140,7 @@ export const Header = () => {
                 <Container>
                     <Row className="align-items-center">
                         <Col className={'d-flex gap-4'}>
-                            <Button variant="primary" onClick={()=> {
+                            <Button variant="success" onClick={()=> {
                                 navigate('/signIn');
                             }}>Sign In</Button>
                             <Button variant="secondary" onClick={()=> {

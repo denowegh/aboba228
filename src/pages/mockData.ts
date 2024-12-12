@@ -1,69 +1,21 @@
-export interface SubscriptionPlan {
-    id: string;
-    title: string;
-    description: string;
-    features: string[];
-    price: string;
-}
-
-export const mockPlans: SubscriptionPlan[] = [
+export const carouselItems = [
     {
-        id: "standard",
-        title: "Стандарт",
-        description: "Отримай все для ефективного тренування!",
-        features: ["Безлімітний доступ до тренувальної зони", "Гнучкий графік відвідувань"],
-        price: "800 грн/місяць",
+        imgSrc: "https://s3-alpha-sig.figma.com/img/7deb/0a8c/d0b489319733859d49042126f517b890?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ofneodIvH-Q4cINTag~RpLE2GnAvV9gN5XjDPSeMQPS~kjhe16S21pzwuM5m2uhD1eqSkUEefSlKT4dVmFGVpmThw6znvjL8nKy66VRXJbluTW69QoTqw57sGxDKySiZtWjNxlvZEtuoiXCkrNd~M2ANqral8JI4J6QfPhquG4vnEVLWyruY-HppirStbP8DRSlhxHyEXFHlR5T9vHPGff1XFJWSiLnf1rKrJnA6UtV39xiEsxomE2DVM8wQHoYLUw~qWkBaKBEBzqCeNn-UTNABgMmG3E15Ssh3GQPedpj3lgoy9L3VuiqHiXCDFMcb2TNSmXXvgeYm5qPN6BtKCw__",
+        altText: "First slide",
+        title: "GymFlow",
+        description: "Автоматизуй роботу свого фітнес-клубу з GymFlow! Легко керуй абонементами, розкладами тренувань та взаємодій з клієнтами...",
     },
     {
-        id: "premium",
-        title: "Преміум",
-        description: "Отримай максимум для досягнення фітнес-цілей!",
-        features: [
-            "Безлімітний доступ до тренувальної зони",
-            "Заняття з груповим тренером",
-            "Персональна консультація тренера",
-        ],
-        price: "1200 грн/місяць",
+        imgSrc: "https://s3-alpha-sig.figma.com/img/7deb/0a8c/d0b489319733859d49042126f517b890?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ofneodIvH-Q4cINTag~RpLE2GnAvV9gN5XjDPSeMQPS~kjhe16S21pzwuM5m2uhD1eqSkUEefSlKT4dVmFGVpmThw6znvjL8nKy66VRXJbluTW69QoTqw57sGxDKySiZtWjNxlvZEtuoiXCkrNd~M2ANqral8JI4J6QfPhquG4vnEVLWyruY-HppirStbP8DRSlhxHyEXFHlR5T9vHPGff1XFJWSiLnf1rKrJnA6UtV39xiEsxomE2DVM8wQHoYLUw~qWkBaKBEBzqCeNn-UTNABgMmG3E15Ssh3GQPedpj3lgoy9L3VuiqHiXCDFMcb2TNSmXXvgeYm5qPN6BtKCw__",
+        altText: "Second slide",
+        title: "GymFlow",
+        description: "Автоматизуй роботу свого фітнес-клубу з GymFlow! Легко керуй абонементами, розкладами тренувань та взаємодій з клієнтами...",
     },
     {
-        id: "vip",
-        title: "VIP",
-        description: "Отримай повний контроль над своїм тренуванням!",
-        features: [
-            "Безкоштовні персональні тренування (2 рази на місяць)",
-            "Доступ до VIP-зони клубу та спеціальних знижок",
-        ],
-        price: "1800 грн/місяць",
-    },
-    {
-        id: "student",
-        title: "Студентський",
-        description: "Спеціальна пропозиція для студентів!",
-        features: ["Безлімітний доступ до тренувальної зони", "Гнучкий графік відвідувань"],
-        price: "700 грн/місяць",
-    },
-    {
-        id: "week",
-        title: "Річний",
-        description: "Отримай максимум можливостей цілий рік!",
-        features: ["Безлімітний доступ до тренувальної зони", "Гнучкий графік відвідувань"],
-        price: "7500 грн/рік",
-    },
-    {
-        id: "oneDay",
-        title: "Разовий",
-        description: "Доступ до клубу для разового тренування.",
-        features: ["Безлімітний доступ до тренувальної зони"],
-        price: "700 грн",
-    },
-    {
-        id: "corporate",
-        title: "Корпоративний",
-        description: "Спеціальна пропозиція для колективів.",
-        features: [
-            "Безлімітний доступ до тренувальної зони",
-            "Заняття з тренером для групи",
-        ],
-        price: "5000 грн",
-    },
+        imgSrc: "https://s3-alpha-sig.figma.com/img/7deb/0a8c/d0b489319733859d49042126f517b890?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ofneodIvH-Q4cINTag~RpLE2GnAvV9gN5XjDPSeMQPS~kjhe16S21pzwuM5m2uhD1eqSkUEefSlKT4dVmFGVpmThw6znvjL8nKy66VRXJbluTW69QoTqw57sGxDKySiZtWjNxlvZEtuoiXCkrNd~M2ANqral8JI4J6QfPhquG4vnEVLWyruY-HppirStbP8DRSlhxHyEXFHlR5T9vHPGff1XFJWSiLnf1rKrJnA6UtV39xiEsxomE2DVM8wQHoYLUw~qWkBaKBEBzqCeNn-UTNABgMmG3E15Ssh3GQPedpj3lgoy9L3VuiqHiXCDFMcb2TNSmXXvgeYm5qPN6BtKCw__",
+        altText: "Third slide",
+        title: "GymFlow",
+        description: "Автоматизуй роботу свого фітнес-клубу з GymFlow! Легко керуй абонементами, розкладами тренувань та взаємодій з клієнтами...",
+    }
 ];
+

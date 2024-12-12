@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0 !important;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -7,6 +8,14 @@ body {
 }
 
 #root {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+  color: white !important;
+}
+
+.btn-close {
+   filter: invert(1);
 }

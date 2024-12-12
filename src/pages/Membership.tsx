@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row, Modal, Form } from "react-bootstrap";
 import { TrainingPlan } from "../types/main.ts";
 import { URL_API } from "../constants.ts";
-import {useDuelStore} from "../stores/useUserStore.tsx";
+import {useUserStore} from "../stores/useUserStore.tsx";
 import CookieManager from "../utils/cookieManager.ts";
 
 export const Membership = memo(() => {
@@ -11,7 +11,7 @@ export const Membership = memo(() => {
     const [showCreateModal, setShowCreateModal] = useState(false); // For Create Modal
     const [selectedPlan, setSelectedPlan] = useState<TrainingPlan | null>(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
-    const {isAdmin} = useDuelStore();
+    const {isAdmin} = useUserStore();
     const email = CookieManager.getItem('email');
     const [newPlan, setNewPlan] = useState<TrainingPlan>({
         id: 0,
@@ -193,7 +193,7 @@ export const Membership = memo(() => {
 
     return (
         <Container className="mt-5">
-            <h1 className="text-center text-light mb-4">Абонементи</h1>
+            <h1 className="text-center text-light mb-4">Membership</h1>
             {
                 isAdmin &&
                 <div className="text-center mb-4">
@@ -239,7 +239,7 @@ export const Membership = memo(() => {
                                 </p> : <Button variant="success" className="w-100 mt-2" onClick={() => {
                                     handleBuyClick(plan);
                                 }}>
-                                    By
+                                    Buy
                                 </Button>}
                             </Card.Body>
                         </Card>

@@ -2,17 +2,19 @@ import {Navigate, Route, Routes} from 'react-router-dom';
 import { SignUp } from "../pages/SignUp.tsx";
 import {Main} from "../pages/Main.tsx";
 import {SignIn} from "../pages/SignIn.tsx";
-import {useDuelStore} from "../stores/useUserStore.tsx";
 import {Membership} from "../pages/Membership.tsx";
 import CookieManager from "../utils/cookieManager.ts";
 import {useEffect} from "react";
 import {customEvent} from "../utils/customEvent.ts";
+import { SchedulePage} from "../pages/Schedule.tsx";
+import {Trainers} from "../pages/Trainers.tsx";
+import {Clients} from "../pages/Clients.tsx";
+import {useUserStore} from "../stores/useUserStore.tsx";
 
 const RoutesComponent = () => {
-    const {isLoggedIn, isAdmin} = useDuelStore();
+    const {isLoggedIn, isAdmin, setIsLoggedIn, setIsAdmin} = useUserStore();
     const isLoggedInCookie = CookieManager.getItem('isLoggedIn');
     const isAdminCookie = CookieManager.getItem('isAdmin');
-    const {setIsLoggedIn, setIsAdmin} = useDuelStore();
 
 
     useEffect(() => {
@@ -39,12 +41,15 @@ const RoutesComponent = () => {
             (isLoggedIn || isLoggedInCookie) && (
                 <>
                     <Route path={'/membership'} element={<Membership/>}/>
-                </>
-            )
-        }
-        {
-            (isAdminCookie || isAdmin) && (
-                <>
+                    <Route path={'/schedule'} element={<SchedulePage/>}/>
+                    <Route path={'/trainers'} element={<Trainers/>}/>
+                    {
+                        (isAdminCookie || isAdmin) && (
+                            <>
+                                <Route path={'/clients'} element={<Clients/>}/>
+                            </>
+                        )
+                    }
                 </>
             )
         }

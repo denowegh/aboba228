@@ -5,12 +5,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  overflow: auto;
+}
 
 html,
 body {
   height: max-content;
   width: 100%;
-  overflow-x: clip;
+  background: #444444 !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.modal-content {
   background: #444444 !important;
 }
 

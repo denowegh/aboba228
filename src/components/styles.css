@@ -19,7 +19,7 @@
 
 .active-link {
     scale: 1.1;
-    color: rgba(161, 215, 108, 1);
+    color: rgba(161, 215, 108, 1) !important;
 }
 
 .logo-header {
