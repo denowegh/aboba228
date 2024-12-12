@@ -115,7 +115,7 @@ export const SchedulePage = () => {
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault();
-        if (!isTrainerAvailable()) {
+        if (!isTrainerAvailable() && modalType !== 'delete') {
             setValidationError("Trainer is already booked for the selected time.");
             return;
         }

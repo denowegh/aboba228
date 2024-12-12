@@ -63,6 +63,14 @@ export const Membership = memo(() => {
             alert("The price can't be less than 0");
             return false;
         }
+        if (plan.duration < 0) {
+            alert("Invalid duration");
+            return false;
+        }
+        if (plan.duration > (365 * 3)) {
+            alert("Invalid duration");
+            return false;
+        }
         return true;
     };
 
