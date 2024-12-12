@@ -64,7 +64,12 @@ export const Main = () => {
                 CookieManager.setItem(`membershipBoth_${email}`, `${selectedBuyPlan.id}`);
                 setShowBuyModal(false);
             } else {
-                alert(`ErrorCreateStatus: ${res.status}`);
+                if (res.status === 409) {
+                    alert(`You can own only one membership`);
+                } else {
+                    alert(`ErrorCreateStatus: ${res.status}`);
+                }
+
             }
         }
     };
