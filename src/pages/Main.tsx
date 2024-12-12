@@ -77,8 +77,8 @@ export const Main = () => {
                 <Row className="w-100">
                     <Col className="w-100">
                         <Carousel autoCapitalize={'off'}>
-                            {carouselItems.map((item) => (
-                                <Carousel.Item>
+                            {carouselItems.map((item, i) => (
+                                <Carousel.Item key={i}>
                                     <img
                                         className="d-block w-100 object-fit-cover"
                                         src={item.imgSrc}

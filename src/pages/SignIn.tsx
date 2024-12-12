@@ -9,9 +9,6 @@ import {customEvent} from "../utils/customEvent.ts";
 type FormData = {
     email: string;
     password: string;
-    confirmPassword: string;
-    surname: string;
-    name: string;
     adminKey?: string;
 };
 
@@ -19,9 +16,6 @@ export const SignIn = () => {
     const [formData, setFormData] = useState<FormData>({
         email: '',
         password: '',
-        confirmPassword: '',
-        surname: '',
-        name: '',
         adminKey: ''
     });
     const navigate = useNavigate();
@@ -43,14 +37,10 @@ export const SignIn = () => {
                 const bodyObj: {
                     email: string;
                     password: string;
-                    surname: string;
-                    name: string;
                     adminKey?: string;
                 } = {
                     email: formData.email,
                     password: formData.password,
-                    surname: formData.surname,
-                    name: formData.name
                 };
                 const isAdminAccount = formData.email.includes('@company.com') && formData.adminKey;
 
@@ -76,20 +66,19 @@ export const SignIn = () => {
                     }
                     navigate('/');
                 } else {
-                    const errorData = await response.json();
-                    alert(`Registration failed: ${errorData.message}`);
+                    alert(`Login failed. Please try again.`);
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert(`Login failed. Please try again. ${(error as {message: string}).message}`);
+                alert(`Login failed. Please try again.`);
             }
         }
     };
 
     const validateForm = (): boolean => {
-        const { email, password, confirmPassword, surname, name, adminKey } = formData;
+        const { email, password, adminKey } = formData;
 
-        if (!email || !password || !confirmPassword || !surname || !name) {
+        if (!email || !password) {
             alert('All fields are required.');
             return false;
         }
@@ -97,11 +86,6 @@ export const SignIn = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             alert('Invalid email format.');
-            return false;
-        }
-
-        if (password !== confirmPassword) {
-            alert('Passwords do not match.');
             return false;
         }
 
@@ -138,42 +122,6 @@ export const SignIn = () => {
                             value={formData.password}
                             onChange={handleChange}
                             placeholder="Enter your password"
-                            required
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formConfirmPassword">
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            name="confirmPassword"
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            placeholder="Confirm your password"
-                            required
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formSurname">
-                        <Form.Label>Surname</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="surname"
-                            value={formData.surname}
-                            onChange={handleChange}
-                            placeholder="Enter your surname"
-                            required
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formName">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="Enter your name"
                             required
                         />
                     </Form.Group>

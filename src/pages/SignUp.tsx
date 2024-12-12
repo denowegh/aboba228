@@ -84,12 +84,10 @@ export const SignUp = () => {
                         }
                         navigate('/');
                     } else {
-                        const errorData = await response.json();
-                        alert(`Registration failed: ${errorData.message}`);
+                        alert(`Registration failed`);
                     }
                 } else {
-                    const errorData = await response.json();
-                    alert(`Registration failed: ${errorData.message}`);
+                    alert(`Registration failed`);
                 }
             } catch (error) {
                 console.error('Error:', error);

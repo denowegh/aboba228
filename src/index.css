@@ -19,3 +19,7 @@ body {
 .btn-close {
    filter: invert(1);
 }
+
+.form-label {
+  color: white !important;
+}
